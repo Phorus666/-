@@ -108,8 +108,20 @@
                 <button class="node-button" onclick="window.open('http://cn-cq-plc-1.openfrp.top:58461', '_blank')">重庆联通</button>
             </div>
             <div class="node">
-                <button class="node-button" onclick="window.open('http://cn-hk-bgp-4.openfrp.top:44572', '_blank')">中国香港</button>
-<script type="text/javascript"> functiondisplayIP(json) {   var ipAddress = json.ip; // 获取访客的IP地址document.getElementById("visitorIP").innerHTML = ipAddress; // 将IP地址显示在网页上 } </script> <scripttype="text/javascript"src="https://api.ipify.org?format=jsonp&callback=displayIP"></script>
-</body>
+                <button class="node-button" onclick="window.open('http://cn-hk-bgp-4.openfrp.top:44572', '_blank')">中国香港</button></div></div>
+<div id="ip-address"></div>
+<script>
+function getIPAddress() {    
+fetch("https://api.ipify.org?format=json")      
+.then(response => response.json())      
+.then(data => {        
+document.getElementById("ip-address").textContent = "您的IP是" + data.ip;      
+})      
+.catch(error => {        
+console.log("Error:", error);      
+});  
+}  
 
+getIPAddress();
+</script>
 </html>
